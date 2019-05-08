@@ -77,13 +77,16 @@
 									<td>
 										<a class="btn" th:class="'btn btn-sm btn-primary'"
 										   th:href="@{/emp/}+${emp.getId()}">edit</a>
-										<button class="btn" th:class="'btn btn-sm btn-danger'">delete</button>
+										<button th:attr="deleteUri=@{/emp/}+${emp.getId()}" class="btn" th:class="'btn btn-sm btn-danger btn-delete'">delete</button>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</main>
+				<form th:id="deleteEmpForm" th:method="post">
+					<input th:type="hidden" th:name="_method" th:value="delete">
+				</form>
 			</div>
 		</div>
 
@@ -129,6 +132,14 @@
 						display: false,
 					}
 				}
+			});
+		</script>
+
+		<script>
+			//delete employee
+			$(".btn-delete").click(function(){
+				$("#deleteEmpForm").attr("action",$(this).attr("deleteUri")).submit();
+				return false;
 			});
 		</script>
 
