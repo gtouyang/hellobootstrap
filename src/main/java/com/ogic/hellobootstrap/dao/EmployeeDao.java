@@ -9,11 +9,15 @@ import com.ogic.hellobootstrap.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 @Repository
 public class EmployeeDao {
 
 	private static Map<Integer, Employee> employees = null;
-	
+
 	@Autowired
 	private DepartmentDao departmentDao;
 	

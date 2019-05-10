@@ -1,6 +1,5 @@
 package com.ogic.hellobootstrap.config;
 
-import com.ogic.hellobootstrap.component.MyLocaleResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +20,6 @@ public class MyConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("login");
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/404").setViewName("404");
         registry.addViewController("/main").setViewName("dashboard");
     }
 
